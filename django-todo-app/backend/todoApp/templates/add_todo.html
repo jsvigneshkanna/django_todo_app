@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/styles/add_todo.css' %}" />
+    <title>Add ToDo 📝</title>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Add Todo List 📑</h1>
+    </div>
+    <div class="main_container">
+      <div class="container">
+        <form method="post">
+          {% csrf_token %}
+          <div class="form_input">
+            <label for="todo_title">Title</label>
+            <input type="text" name="todo_title" id="todo_title" />
+          </div>
+          <div class="form_input">
+            <label for="todo_deatils">Detail</label>
+            <textarea type="text" name="todo_details" id="todo_details">Add your todo details 🚀</textarea>
+          </div>
+          <div class="form_input">
+            <label for="todo_completion">is completed ?</label>
+            <input type="checkbox" name="todo_completion" id="todo_completion" />
+          </div>
+          <div class="add_btn_container">
+            <input type="submit" value="Add" class="add_btn" id="add_btn" formaction="/add_todo/" />
+            <input type="submit" value="Go back to list" class="go_back_to_list" formaction="/" />
+          </div>
+        </form>
+        {% if error %}
+        <div class="error_message" id="error_msg">{{error}}</div>
+        {% else %}
+        <div class="error_message" id="error_msg"></div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- JS Part -->
+    {% block javascript %}
+    <script>
+      const submitBtn = document.getElementById("add_btn");
+      const todoTitle = document.getElementById("todo_title");
+      const errorMsg = document.getElementById("error_msg");
+
+      submitBtn.addEventListener("click", (e) => {
+        if (todoTitle.value.length == 0 || todoTitle.value == null) {
+          e.preventDefault();
+          errorMsg.innerHTML = "Please enter a valid title";
+        }
+      });
+    </script>
+    {% endblock javascript %}
+  </body>
+</html>

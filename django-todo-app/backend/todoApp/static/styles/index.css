@@ -1,0 +1,96 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  background-color: #d070fd;
+}
+
+.header {
+  background-color: #b40081;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  box-shadow: 6px 0px 0px 6px rgba(197, 104, 104, 0.795);
+  font-size: x-large;
+  margin-bottom: 1rem;
+}
+
+.sticky_add_btn {
+  position: fixed;
+  left: 36px;
+  top: 50vh;
+  cursor: pointer;
+}
+
+.sticky_add_btn button {
+  font-size: inherit;
+  border: rgb(67, 5, 5);
+  padding: 6px;
+  border-radius: 50%;
+  background-color: purple;
+  border: 5px solid red;
+  color: white;
+  font-weight: bolder;
+}
+
+.sticky_add_btn:hover {
+  border-radius: 50%;
+  box-shadow: 0px 0px 6px 6px rgba(197, 104, 104, 0.795);
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+  color: white;
+  margin-top: 3rem;
+}
+
+.todo_list {
+  background-color: whitesmoke;
+  padding: 12px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 2px 2px rgb(204, 132, 132);
+  color: rgb(136, 10, 10);
+  line-break: anywhere;
+  margin-bottom: 1.4rem;
+  line-height: 2rem;
+}
+
+ul {
+  font-weight: bold;
+  font-size: large;
+  list-style: none;
+}
+
+.todo_title {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 780px) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    width: 75%;
+  }
+
+  .sticky_add_btn button {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+  }
+
+  .sticky_add_btn button:focus {
+    border-radius: 50%;
+    box-shadow: 0px 0px 6px 6px rgba(197, 104, 104, 0.795);
+  }
+}

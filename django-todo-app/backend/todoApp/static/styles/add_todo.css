@@ -1,0 +1,138 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  background-color: #d070fd;
+}
+
+.header {
+  background-color: #b40081;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  color: white;
+  box-shadow: 6px 0px 0px 6px rgba(197, 104, 104, 0.795);
+  font-size: x-large;
+  margin-bottom: 1rem;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  color: white;
+  /* margin-top: 3rem; */
+  background-color: purple;
+  padding: 48px 6rem 48px 6rem;
+  font-size: x-large;
+  font-weight: 800;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 4px 4px 2px white;
+  border-radius: 6px;
+  margin-top: 8rem;
+}
+
+form {
+  width: 80%;
+}
+
+.form_input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.6rem;
+}
+
+.form_input input {
+  font: inherit;
+  width: 360px;
+  border-radius: 6px;
+  border: none;
+  padding: 4px;
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+}
+
+.form_input textarea {
+  font: inherit;
+  width: 360px;
+  height: 120px;
+  padding: 4px;
+  outline: none;
+  border-radius: 6px;
+}
+
+textarea:focus {
+  outline: none;
+}
+.add_btn_container {
+  font: inherit;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.go_back_to_list {
+  background-color: white;
+  color: purple;
+  font: inherit;
+  outline: none;
+  padding: 8px;
+  border-radius: 6px;
+  border: 2px solid red;
+  cursor: pointer;
+}
+
+.add_btn {
+  font: inherit;
+  outline: none;
+  padding: 8px;
+  background-color: rgb(33, 163, 33);
+  color: white;
+  border-radius: 6px;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.error_message {
+  text-align: center;
+  background-color: red;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+@media screen and (max-width: 780px) {
+  .header {
+    font-size: medium;
+  }
+  .container {
+    width: 90%;
+    box-shadow: 1px 2px 2px 1px white;
+    font-size: large;
+    padding: 48px 12px 48px 12px;
+  }
+  form {
+    font: inherit;
+    width: 100%;
+    justify-content: space-evenly;
+  }
+  .form_input input {
+    max-width: 240px;
+  }
+  .form_input textarea {
+    max-width: 240px;
+  }
+  #todo_completion {
+    width: 24px;
+    height: 24px;
+  }
+}

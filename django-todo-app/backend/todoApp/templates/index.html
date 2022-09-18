@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/styles/index.css' %}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <title>Vignesh Kanna ToDos</title>
+  </head>
+  <body>
+    {% csrf_token %}
+    <div class="header">
+      <h1>Todo List 📑</h1>
+    </div>
+    <div class="sticky_add_btn">
+      <form action="/add_todo" method="get">
+        <button type="submit" id="add_todo_btn">
+          <span class="material-icons"> add </span>
+        </button>
+      </form>
+    </div>
+    <div class="container todo_lists">
+      {% for todo in todo_list %}
+      <div class="todo_list">
+        <ul>
+          <li><p class="todo_title">{{todo.title}}</p></li>
+          <li class="detail">{{todo.detail}}</li>
+          <li>
+            <span>Completion:</span>
+            {% if todo.isCompleted %}
+            <span>Done</span>
+            {% else %}
+            <span>Not Done</span>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- {% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        console.log("hello world");
+        $("#add_todo_btn").click(function () {
+          console.log("click");
+          $.ajax({
+            type: "GET",
+            url: "/add_todo",
+          });
+        });
+      });
+    </script>
+    {% endblock javascript %} -->
+  </body>
+</html>
