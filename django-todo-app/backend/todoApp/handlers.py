@@ -9,10 +9,10 @@ def fetch_todo():
 
 # handler method to save new todo from customer to database
 def save_new_todo(title, detail, is_completed):
-    print(title)
-    print(detail)
-    print(is_completed)
     new_todo = Todo(title=title, detail=detail, isCompleted=is_completed)
-    print('checking')
     new_todo.save()
-    print('saved')
+
+# handler method to delete a todo from database
+def delete_todo_handler(id):
+    Todo.objects.filter(id=id).delete()
+    print('deleted')

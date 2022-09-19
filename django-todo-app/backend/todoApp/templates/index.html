@@ -24,6 +24,12 @@
     <div class="container todo_lists">
       {% for todo in todo_list %}
       <div class="todo_list">
+        <div class="todo_delete_btns">
+          {% csrf_token %}
+          <button id="todo_delete_btn" class="todo_delete_btn" todo-id="{{todo.id}}">
+            <span class="material-icons"> backspace </span>
+          </button>
+        </div>
         <ul>
           <li><p class="todo_title">{{todo.title}}</p></li>
           <li class="detail">{{todo.detail}}</li>
@@ -40,21 +46,25 @@
       {% endfor %}
     </div>
 
-    <!-- {% block javascript %}
+    {% block javascript %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <script type="text/javascript">
-      $(document).ready(function () {
-        console.log("hello world");
-        $("#add_todo_btn").click(function () {
-          console.log("click");
-          $.ajax({
-            type: "GET",
-            url: "/add_todo",
-          });
+    <script>
+      $(".todo_delete_btn").click(function () {
+        const todoId = $(this).attr("todo-id");
+        $.ajax({
+          url: "/delete_todo/",
+          data: {
+            todo_id: todoId,
+          },
+          type: "post",
+          cache: false,
+          success: function () {
+            location.reload(true);
+          },
         });
       });
     </script>
-    {% endblock javascript %} -->
+    {% endblock javascript %}
   </body>
 </html>

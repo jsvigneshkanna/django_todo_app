@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
-from todoApp.handlers import (fetch_todo, save_new_todo)
+
+from django.shortcuts import render, redirect, HttpResponse
+from todoApp.handlers import (fetch_todo, save_new_todo, delete_todo_handler)
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt,csrf_protect 
 
 def TestView(request):
     return render(request, '../templates/index.html')
@@ -38,3 +40,12 @@ def add_todo(request):
             return render(request, '../templates/add_todo.html', {'error': 'Some issue in last todo save ☹️'})
     else:
         raise Exception('add todo view method not applicable')
+
+@csrf_exempt #This skips csrf validation
+def delete_todo(request):
+    """
+    Delete view to delete the todo item from database for a particular ID
+    """
+    todo_id = request.POST.get('todo_id')
+    delete_todo_handler(id=todo_id)
+    return HttpResponse('success')
