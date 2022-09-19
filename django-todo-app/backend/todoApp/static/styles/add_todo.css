@@ -73,34 +73,37 @@ input:focus {
 textarea:focus {
   outline: none;
 }
-.add_btn_container {
+.btn_container {
   font: inherit;
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .go_back_to_list {
   background-color: white;
-  color: purple;
+  color: rgb(38, 176, 4);
   font: inherit;
   outline: none;
   padding: 8px;
   border-radius: 6px;
-  border: 2px solid red;
+  border: 2px solid rgb(38, 176, 4);
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .add_btn {
   font: inherit;
   outline: none;
   padding: 8px;
-  background-color: rgb(33, 163, 33);
+  background-color: rgb(38, 176, 4);
   color: white;
   border-radius: 6px;
   border: 2px solid white;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 .error_message {
@@ -113,6 +116,7 @@ textarea:focus {
 @media screen and (max-width: 780px) {
   .header {
     font-size: medium;
+    letter-spacing: 0.5rem;
   }
   .container {
     width: 90%;
