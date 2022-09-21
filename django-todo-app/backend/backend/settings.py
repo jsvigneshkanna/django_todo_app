@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-&cw43n2baks3wxceap0!sok)7&t4g4@3^0pr$u3hthd@wrkun9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'django-vk-todo.herokuapp.com']
 
 
 # Application definition
@@ -84,7 +84,6 @@ DATABASES = {
 }
 
 WHITENOISE_USE_FINDERS = True
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -122,6 +121,7 @@ USE_TZ = True
 
 
 STATIC_URL = 'todoApp/static/'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
